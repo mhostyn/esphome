@@ -84,7 +84,11 @@ async def to_code(config):
     cg.add_build_flag("-DDSMR_GAS_MBUS_ID=" + str(config[CONF_GAS_MBUS_ID]))
 
     # DSMR Parser
-    cg.add_library("glmnet/Dsmr", "dev")
-
+    #cg.add_library("glmnet/Dsmr", "0.5")
+    cg.add_library(
+        name="Dsmr",
+        repository="https://github.com/glmnet/arduino-dsmr",
+        version="master",
+    )
     # Crypto
     cg.add_library("rweather/Crypto", "0.4.0")
